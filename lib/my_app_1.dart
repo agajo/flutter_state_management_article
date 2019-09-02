@@ -20,6 +20,7 @@ class _HogeStatefulWidgetState extends State<HogeStatefulWidget> {
   final WidgetA _widgetA = WidgetA();
   final WidgetD _widgetD = WidgetD();
   int _counter = 0;
+  void increment() => setState(() => _counter++);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -39,10 +40,8 @@ class WidgetA extends StatelessWidget {
       icon: Icon(Icons.plus_one),
       label: Text('plus 1'),
       onPressed: () {
-        // グローバル変数である_stateが持つsetStateを直接呼ぶ
-        _state.setState(() {
-          _state._counter++;
-        });
+        // グローバル変数である_stateが持つ更新関数を直接呼ぶ
+        _state.increment();
       },
     );
   }
