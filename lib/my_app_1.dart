@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class MyApp1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print('MyApp1 is built');
     return HogeStatefulWidget();
   }
 }
