@@ -13,12 +13,10 @@ class MyApp8 extends StatelessWidget {
 }
 
 class HogeWidget extends StatelessWidget {
-  final _HogeBloc _hogeBloc = _HogeBloc();
-
   @override
   Widget build(BuildContext context) {
     return Provider<_HogeBloc>(
-      builder: (_) => _hogeBloc,
+      builder: (_) => _HogeBloc(),
       dispose: (_, _HogeBloc bloc) => bloc.dispose(),
       child: Column(
         children: <Widget>[
