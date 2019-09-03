@@ -71,7 +71,6 @@ class _WidgetCState extends State<WidgetC> {
   Widget build(BuildContext context) {
     print('WidgetCState is built.');
     // listnerとしてリビルドを登録したいので、WidgetCをStatefulWidgetにしてsetStateをlistner登録
-    // TODO: StatelessWidgetのbuildをlistener登録したらどうなるか実験
     widget._hogeChangeNotifier.addListener(rebuildC);
     return Column(
       children: <Widget>[
