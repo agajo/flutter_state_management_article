@@ -3,3 +3,6 @@
 こちらの記事用に作ったものです。
 
 https://qiita.com/agajo/items/50d5d7497d28730de1d3
+
+This software is released under the MIT License, see LICENSE.
+
