@@ -15,6 +15,7 @@ class MyApp8 extends StatelessWidget {
 class HogeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // ここのProviderからBLoCを下層に渡します
     return Provider<_HogeBloc>(
       builder: (_) => _HogeBloc(),
       dispose: (_, _HogeBloc bloc) => bloc.dispose(),

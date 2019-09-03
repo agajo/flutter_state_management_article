@@ -53,11 +53,11 @@ class WidgetC extends StatefulWidget {
   final Widget child;
 
   @override
-  // グローバル変数であるStateを返す
+  // グローバル変数であるStateを返す(bad)
   _WidgetCState createState() => _widgetCState;
 }
 
-// Stateをグローバル変数として持つ
+// Stateをグローバル変数として持つ(bad)
 _WidgetCState _widgetCState = _WidgetCState();
 
 class _WidgetCState extends State<WidgetC> {
