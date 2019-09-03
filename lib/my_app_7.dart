@@ -99,6 +99,7 @@ class WidgetC extends StatelessWidget {
     return Column(
       children: <Widget>[
         StreamBuilder(
+          // 受け取っているHogeBlocのStreamに応答してリビルド
           stream: _hogeBloc.counter,
           builder: (_, AsyncSnapshot snapshot) =>
               Text(snapshot.data.toString()),
