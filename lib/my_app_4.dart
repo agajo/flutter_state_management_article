@@ -18,7 +18,6 @@ class _HogeStatefulWidgetState extends State<HogeStatefulWidget> {
   // (↑initializerの中ではstaticメソッドしか渡せないから)
   WidgetA _widgetA;
   WidgetB _widgetB = WidgetB();
-  final WidgetD _widgetD = WidgetD();
   int _counter = 0;
   void increment() => setState(() => _counter++);
   void initState() {
