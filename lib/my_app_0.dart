@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 
-class MyApp1 extends StatelessWidget {
+class MyApp0 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print('MyApp1 is built');
+    print('MyApp0 is built');
     return HogeWidget();
   }
 }
-
-// WidgetCに渡すためのGlobalKeyを生成しておく
-GlobalKey<_WidgetCState> _globalKey = GlobalKey<_WidgetCState>();
 
 class HogeWidget extends StatelessWidget {
   // WidgetAとWidgetDはここで生成したものをずっと使うので、リビルドされることはない
@@ -20,8 +17,7 @@ class HogeWidget extends StatelessWidget {
     return Column(
       children: <Widget>[
         _widgetA,
-        // WidgetCに生成したGlobalKeyを渡しておく
-        WidgetB(child: WidgetC(child: _widgetD, key: _globalKey)),
+        WidgetB(child: WidgetC(child: _widgetD)),
       ],
     );
   }
@@ -35,8 +31,8 @@ class WidgetA extends StatelessWidget {
       icon: Icon(Icons.plus_one),
       label: Text('plus 1'),
       onPressed: () {
-        // GlobalKeyを使って、更新関数を直接呼ぶ
-        _globalKey.currentState.increment();
+        // グローバル変数であるStateが持つ更新関数を直接呼ぶ
+        _widgetCState.increment();
       },
     );
   }
@@ -53,13 +49,16 @@ class WidgetB extends StatelessWidget {
 }
 
 class WidgetC extends StatefulWidget {
-  WidgetC({this.child, Key key}) : super(key: key);
+  WidgetC({this.child});
   final Widget child;
 
   @override
   // グローバル変数であるStateを返す
-  _WidgetCState createState() => _WidgetCState();
+  _WidgetCState createState() => _widgetCState;
 }
+
+// Stateをグローバル変数として持つ
+_WidgetCState _widgetCState = _WidgetCState();
 
 class _WidgetCState extends State<WidgetC> {
   int _count = 0;
