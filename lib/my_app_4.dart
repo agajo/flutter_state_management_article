@@ -20,6 +20,7 @@ class _HogeStatefulWidgetState extends State<HogeStatefulWidget> {
   WidgetB _widgetB = WidgetB();
   int _counter = 0;
   void increment() => setState(() => _counter++);
+  @override
   void initState() {
     super.initState();
     // WidgetAのコンストラクタにincrement関数を渡しておく
