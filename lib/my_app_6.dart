@@ -10,17 +10,15 @@ class MyApp6 extends StatelessWidget {
 }
 
 class HogeWidget extends StatelessWidget {
-  final WidgetA _widgetA = WidgetA();
-  final WidgetB _widgetB = WidgetB();
-
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
+    // ここからChangeNotifierを下層に渡す
+    return ChangeNotifierProvider<_HogeChangeNotifier>(
       builder: (_) => _HogeChangeNotifier(),
       child: Column(
         children: <Widget>[
-          _widgetA,
-          _widgetB,
+          WidgetA(),
+          WidgetB(),
         ],
       ),
     );
@@ -50,17 +48,14 @@ class WidgetA extends StatelessWidget {
 }
 
 class WidgetB extends StatelessWidget {
-  final WidgetD _widgetD = WidgetD();
   @override
   Widget build(BuildContext context) {
     print('WidgetB is built');
-    return WidgetC(child: _widgetD);
+    return WidgetC();
   }
 }
 
 class WidgetC extends StatelessWidget {
-  WidgetC({this.child});
-  final Widget child;
   @override
   Widget build(BuildContext context) {
     print('WidgetC is built.');
@@ -70,7 +65,7 @@ class WidgetC extends StatelessWidget {
         Consumer<_HogeChangeNotifier>(
             builder: (_, _HogeChangeNotifier hoge, __) =>
                 Text(hoge._counter.toString())),
-        child,
+        WidgetD(),
       ],
     );
   }

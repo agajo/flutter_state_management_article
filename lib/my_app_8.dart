@@ -68,18 +68,14 @@ class WidgetA extends StatelessWidget {
 }
 
 class WidgetB extends StatelessWidget {
-  final WidgetD _widgetD = WidgetD();
   @override
   Widget build(BuildContext context) {
     print('WidgetB is built');
-    return WidgetC(child: _widgetD);
+    return WidgetC();
   }
 }
 
 class WidgetC extends StatelessWidget {
-  WidgetC({this.child});
-  final Widget child;
-
   @override
   Widget build(BuildContext context) {
     print('WidgetC is built.');
@@ -91,7 +87,7 @@ class WidgetC extends StatelessWidget {
           builder: (_, AsyncSnapshot snapshot) =>
               Text(snapshot.data.toString()),
         ),
-        child,
+        WidgetD(),
       ],
     );
   }
